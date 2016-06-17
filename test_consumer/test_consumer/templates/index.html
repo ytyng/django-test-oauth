@@ -1,0 +1,22 @@
+{% load socialaccount %}
+{% load account %}
+
+<html>
+<head>
+<meta charset="utf-8" />
+</head>
+<body>
+
+<a href="{% provider_login_url "twitter" %}">Twitterでログイン</a><br />
+<a href="{% provider_login_url "google" %}">Googleでログイン</a><br />
+<a href="{% provider_login_url "testprovider" %}">Test Provider でログイン</a><br />
+
+<hr />
+{% if user.is_authenticated %}
+  ログインユーザー: {% user_display user %}<br />
+  {% for sa in user.socialaccount_set.all %}
+    {{ sa.extra_data }}<br />
+  {% endfor %}
+{% endif %}
+</body>
+</html>
