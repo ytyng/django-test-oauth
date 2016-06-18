@@ -1,0 +1,3 @@
+Django
+django-oauth-toolkit
+django-cors-headers
